@@ -273,6 +273,56 @@ class Array:
                     print(self.array[i],count)
 
 
+    def pairSum(self,value):
+        for i in range(self.length-1):
+            for  j in range(self.length-1):
+                if self.array[i]+self.array[j]==value:
+                    print(self.array[i],self.array[j],value)
+
+
+    def pairSumHashing(self,k):
+        max=self.maxEle()
+        H=[0]*(max+1)
+        for i in range(self.length):
+            if(H[k-self.array[i]]!=0):
+                print(self.array[i],(k-self.array[i]),k)
+            H[self.array[i]]+=1
+
+
+    def pairsumSortedArray(self, k):
+        i = 0
+        j = self.length - 1
+        while i < j:
+            current_sum = self.array[i] + self.array[j]
+            if current_sum == k:
+                print(f"Pair found: {self.array[i]} + {self.array[j]} = {k}")
+                i += 1
+                j -= 1
+            elif current_sum < k:
+                i += 1
+            else:
+                j -= 1
+
+
+    def maxmin(self):
+        min=self.array[0]
+        max=self.array[0]
+        for i in range(self.length):
+            if self.array[i]<min:
+                min=self.array[i]
+            elif self.array[i]>max:
+                max=self.array[i]
+        print(f"Mininum Element is {min} and Maximum Element is {max}")
+
+
+
+
+
+
+
+
+
+        
 
 
 
@@ -282,18 +332,18 @@ class Array:
 
 
 arr=Array(20,'i')
-arr.insert(0,16)
-arr.insert(1,12)
-arr.insert(2,18)
-arr.insert(3,9)
-arr.insert(4,12)
-arr.insert(5,12)
-arr.insert(6,15)
-arr.insert(7,16)
-arr.insert(8,17)
-arr.insert(9,18)
-arr.insert(10,19)
-arr.insert(11,16)
+# arr.insert(0,16)
+# arr.insert(1,12)
+# arr.insert(2,18)
+# arr.insert(3,9)
+# arr.insert(4,12)
+# arr.insert(5,12)
+# arr.insert(6,15)
+# arr.insert(7,16)
+# arr.insert(8,17)
+# arr.insert(9,18)
+# arr.insert(10,19)
+# arr.insert(11,16)
 # arr.insert(0,6)
 # arr.insert(1,7)
 # arr.insert(2,8)
@@ -304,15 +354,15 @@ arr.insert(11,16)
 # arr.insert(7,14)
 # arr.insert(8,15)
 # arr.insert(9,16)
-arr.insert(10,17)
-# arr.insert(0,1)
-# arr.insert(1,2)
-# arr.insert(2,3)
-# arr.insert(3,4)
-# arr.insert(4,5)
-# arr.insert(5,6)
-# arr.insert(6,7)
-# arr.insert(7,9)
+# arr.insert(10,17)
+arr.insert(0,1)
+arr.insert(1,2)
+arr.insert(2,3)
+arr.insert(3,4)
+arr.insert(4,5)
+arr.insert(5,6)
+arr.insert(6,7)
+arr.insert(7,8)
 # arr.insert(8,10)
 # arr.insert(9,10)
 # arr.insert(10,11)
@@ -337,4 +387,10 @@ print(arr)
 # arr.duplicateEle()
 # arr.duplicateCount()
 # arr.duplicateHashElem()
-arr.deuplicateUnsorted()
+# arr.deuplicateUnsorted()
+# arr.pairSum(24)
+# arr.pairSumHashing(24)
+
+# arr.pairsumSortedArray(10)
+arr.maxmin()
+print([x for x in range(8)])
